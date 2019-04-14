@@ -3,19 +3,27 @@ First Order Logic Parser
 
 
 Test Cases :
-Bill has at most one sister.
+1) Bill has at most one sister.
+FOL:
 ∀ x, y ( SisterOf(x, Bill) ∧ SisterOf(y, Bill) ⇒ x = y )
+PROLOG:
 fol(PT,[forall,x,y,"(",s,"(",x,y,")",and,s,"(",x,y,")",implies,x,=,y,")"],[]).
 
-Every student loves some student.
+2)Every student loves some student.
+FOL:
 ∀ x ( Student(x) ⇒ ∃ y ( Student(y) ∧ Loves(x,y) )).
+PROLOG:
 fol(PT,[forall,x,"(",s,"(",x,")",implies,exists,y,"(",f,"(",y,")",and,l,"(",x,y,")",")",")"],[]).
 
 
-There exists a student.
+4)There exists a student.
+FOL:
 ∃ x Student(x).
+PROLOG:
 fol(PT,[exists,x,"(",f,"(",x,")",")"],[]).
 
-
+5) 
+FOL:
 For all x ,y (f(x) implies g(y)).
+PROLOG:
 fol(PT,[forall,x,y,"(",f,"(",x,")",implies,g,"(",y,")",")"],[]).
