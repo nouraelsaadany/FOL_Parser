@@ -27,3 +27,12 @@ FOL:
 For all x ,y (f(x) implies g(y)).
 PROLOG:
 fol(PT,[forall,x,y,"(",f,"(",x,")",implies,g,"(",y,")",")"],[]).
+
+
+
+Test Cases for propositional logic: 
+propos(PT,[x,and,x],[]).
+propos(PT,[x,and,y],[]).
+propos(PT,[x,not,y],[]).
+propos(PT,[x,or,not,x],[]).
+propos(PT,[not,x,or,not,y],[]).
