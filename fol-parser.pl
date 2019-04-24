@@ -6,9 +6,15 @@
 
 %fols(fols(Q,B1,F,B2,V,B3,B4)) --> quantifier(Q), openbrack(B1), varr(F) , openbrack(B2) ,varr(V) ,closebrack(B3) , closebrack(B4).
 
+
 propos(propos(V,O,V))--> varr(V),or(O),varr(V).
+propos(propos(V,O,N,V))--> varr(V),or(O),not(N),varr(V).
+propos(propos(N,V,O,N,V))--> not(N),varr(V),or(O),not(N),varr(V).
 propos(propos(V,A,V))--> varr(V),and(A),varr(V).
+propos(propos(V,A,V1))--> varr(V),and(A),varr(V1).
+propos(propos(V,A,V))--> varr(V),not(A),varr(V).
 propos(propos(V,A,V))--> varr(V),and(A),varr(V).
+propos(propos(V,A,N,P))--> varr(V),and(A),not(N),varr(P).
 
 
 fol(fol(Q,V,B1,F,I,F2,B2)) --> quantifier(Q),varormore(V),openbrack(B1),functionphrase(F),implication(I),functionphrase(F2),closebrack(B2).
@@ -63,7 +69,7 @@ equals(equals(=))--> [=].
 openbrack(openbrack("("))-->["("].
 closebrack(closebrack(")"))-->[")"].
 
-neg(neg(not))--> [not].
+not(not(not))--> [not].
 and(and(and))-->[and].
 or(or(or))-->[or].
 implication(implication(impliies))--> [implies].
